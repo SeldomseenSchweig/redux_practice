@@ -2,12 +2,19 @@ const INITIAL_STATE = {count: 0}
 
 const countReducer = (state = INITIAL_STATE, action) => {
 
-    if (action.type === 'LOG_STATE'){
-        console.log("HERE IS YOUR STATE", state)
-        return state
+    switch (action.type) {
+
+        case "INCREMENT":
+            return {...state, count:state.count + 1}
+        case "DECREMEMT":
+            return {...state, count:state.count - 1}
+        case "RESET":
+            return {...state,count:0 }
+        default: 
+            return state
     }
     return state
-    
+        
 }
 
 
